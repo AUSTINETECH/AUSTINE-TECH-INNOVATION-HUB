@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1000 1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Mark -->
+  <g id="logo-mark">
+    <!-- A Triangle -->
+    <path d="M 400 150 L 550 400 L 450 400 Z" fill="#0099FF" />
+    <path d="M 550 400 L 650 150 L 550 400 Z" fill="#0052CC" />
+    
+    <!-- T -->
+    <rect x="450" y="350" width="200" height="80" fill="#0052CC" />
+    <rect x="480" y="430" width="140" height="200" fill="#001A4D" />
+    
+    <!-- R -->
+    <path d="M 680 350 Q 750 350 750 420 Q 750 480 680 480 L 700 480 L 770 600 L 690 600 L 620 480 L 620 600 L 540 600 L 540 350 L 680 350 Z" fill="#001A4D" />
+    
+    <!-- Orbital swirl -->
+    <path d="M 350 250 Q 280 350 350 450" stroke="#0099FF" stroke-width="30" fill="none" stroke-linecap="round" />
+    
+    <!-- Digital pixels -->
+    <g fill="#0099FF">
+      <rect x="800" y="180" width="40" height="40" />
+      <rect x="860" y="160" width="40" height="40" />
+      <rect x="920" y="180" width="40" height="40" />
+    </g>
+    <g fill="#0052CC">
+      <rect x="840" y="240" width="40" height="40" />
+      <rect x="900" y="220" width="40" height="40" />
+    </g>
+    
+    <!-- Connecting line and sphere -->
+    <circle cx="760" cy="260" r="20" fill="#0099FF" />
+    <path d="M 750 480 Q 760 370 760 260" stroke="#0099FF" stroke-width="8" fill="none" stroke-linecap="round" />
+  </g>
+  
+  <!-- Text: AUSTINE -->
+  <text x="100" y="850" font-family="Arial, sans-serif" font-size="140" font-weight="900" fill="#001A4D" letter-spacing="8">AUSTINE</text>
+  
+  <!-- Text: TECH INNOVATION HUB -->
+  <text x="180" y="950" font-family="Arial, sans-serif" font-size="60" font-weight="600" fill="#0099FF" letter-spacing="4">TECH INNOVATION HUB</text>
+  
+  <!-- Decorative lines -->
+  <line x1="100" y1="980" x2="300" y2="980" stroke="#0099FF" stroke-width="6" />
+  <line x1="700" y1="980" x2="900" y2="980" stroke="#0099FF" stroke-width="6" />
+  
+  <!-- Tagline: INNOVATE • CONNECT • EMPOWER -->
+  <text x="500" y="1050" font-family="Arial, sans-serif" font-size="50" font-weight="400" fill="#001A4D" text-anchor="middle" letter-spacing="2">INNOVATE  •  CONNECT  •  EMPOWER</text>
+</svg>

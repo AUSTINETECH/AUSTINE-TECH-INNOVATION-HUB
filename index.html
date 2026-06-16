@@ -2,399 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Austine Tech Innovation Hub</title>
-
-    <!-- Google Fonts -->
+    
+    <!-- Primary Meta Tags -->
+    <title>AUSTINE TECH INNOVATION HUB | Empowering Africa's Tech Innovators</title>
+    <meta name="title" content="AUSTINE TECH INNOVATION HUB | Empowering Africa's Tech Innovators" />
+    <meta name="description" content="Join Africa's premier innovation ecosystem. Access curated learning paths, mentorship, resources, and a community of passionate tech innovators." />
+    <meta name="keywords" content="tech innovation, Africa tech, programming, mentorship, learning, community" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://austinetech.io/" />
+    <meta property="og:title" content="AUSTINE TECH INNOVATION HUB" />
+    <meta property="og:description" content="Empowering Africa's next generation of tech innovators through collaborative learning and mentorship." />
+    <meta property="og:image" content="/src/assets/images/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://austinetech.io/" />
+    <meta property="twitter:title" content="AUSTINE TECH INNOVATION HUB" />
+    <meta property="twitter:description" content="Empowering Africa's next generation of tech innovators through collaborative learning and mentorship." />
+    <meta property="twitter:image" content="/src/assets/images/og-image.jpg" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "AUSTINE TECH INNOVATION HUB",
+            "description": "Africa's leading tech innovation ecosystem",
+            "url": "https://austinetech.io",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Kenya"
+            },
+            "sameAs": [
+                "https://twitter.com/AUSTINETECH",
+                "https://github.com/AUSTINETECH"
+            ]
+        }
+    </script>
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Font Awesome 6 (free) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <!-- Three.js for 3D page -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
 <body>
-
-    <!-- Cursor Glow -->
-    <div id="cursor-glow"></div>
-
-    <!-- Floating CTA -->
-    <a href="#main-contact" class="floating-cta" id="floatingCta">Let's Talk →</a>
-
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="nav" id="nav">
-        <div class="nav-logo" onclick="go('landing')">
-            <div class="logo-icon">AT</div>
-            <div class="logo-text">
-                <span class="logo-line1">AUSTINE</span>
-                <span class="logo-line2">TECH INNOVATION HUB</span>
-                <span class="logo-line3">INNOVATE · CONNECT · EMPOWER</span>
-            </div>
-        </div>
-        <div class="nav-right">
-            <span class="nav-item" onclick="go('landing')">Home</span>
-            <div class="dropdown">
-                <span class="nav-item" style="cursor:pointer">Solutions <span class="dropdown-arrow">▼</span></span>
-                <div class="dropdown-content">
-                    <a href="#main-services" onclick="event.preventDefault(); go('main'); setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),400)">Web Development</a>
-                    <a href="#main-services" onclick="event.preventDefault(); go('main'); setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),400)">App &amp; SaaS</a>
-                    <a href="#main-services" onclick="event.preventDefault(); go('main'); setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),400)">IoT &amp; Prototyping</a>
-                    <a href="#main-services" onclick="event.preventDefault(); go('main'); setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),400)">UI/UX Design</a>
-                    <a href="#main-services" onclick="event.preventDefault(); go('main'); setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),400)">AgriTech Consulting</a>
-                </div>
-            </div>
-            <span class="nav-item" onclick="go('main'); setTimeout(()=>document.getElementById('main-projects')?.scrollIntoView({behavior:'smooth'}),400)">Projects</span>
-            <span class="nav-item" onclick="go('main'); setTimeout(()=>document.getElementById('main-team')?.scrollIntoView({behavior:'smooth'}),400)">Partnerships</span>
-            <span class="nav-item" onclick="go('designer')">About</span>
-            <span class="nav-item" onclick="goContact()">Contact</span>
-            <span class="nav-cta" onclick="goContact()">Get In Touch</span>
-        </div>
-        <button class="burger" id="burger" onclick="toggleMob()" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-    <div class="mob-menu" id="mob">
-        <div class="mob-item" onclick="go('landing');closeMob()">Home</div>
-        <div class="mob-item" style="display:flex;flex-direction:column;gap:.25rem;border-bottom:1px solid rgba(255,255,255,.04);padding-bottom:.5rem">
-            <span style="color:rgba(255,255,255,.5);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em">Solutions</span>
-            <span style="font-weight:400;font-size:.9rem;padding:6px 0" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),500)">Web Development</span>
-            <span style="font-weight:400;font-size:.9rem;padding:6px 0" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),500)">App &amp; SaaS</span>
-            <span style="font-weight:400;font-size:.9rem;padding:6px 0" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),500)">IoT &amp; Prototyping</span>
-            <span style="font-weight:400;font-size:.9rem;padding:6px 0" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),500)">UI/UX Design</span>
-            <span style="font-weight:400;font-size:.9rem;padding:6px 0" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-services')?.scrollIntoView({behavior:'smooth'}),500)">AgriTech Consulting</span>
-        </div>
-        <div class="mob-item" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-projects')?.scrollIntoView({behavior:'smooth'}),500)">Projects</div>
-        <div class="mob-item" onclick="go('main');closeMob();setTimeout(()=>document.getElementById('main-team')?.scrollIntoView({behavior:'smooth'}),500)">Partnerships</div>
-        <div class="mob-item" onclick="go('designer');closeMob()">About</div>
-        <div class="mob-item" onclick="goContact();closeMob()">Contact</div>
-        <div class="mob-item" style="background:var(--primary);border-radius:6px;text-align:center;margin-top:.5rem;border-bottom:none" onclick="goContact();closeMob()">Get In Touch →</div>
-    </div>
-
-    <!-- ===== PAGES ===== -->
-    <!-- LANDING -->
-    <div class="page active" id="page-landing">
-        <section class="land-hero">
-            <canvas id="particles-canvas"></canvas>
-            <div class="land-bg"></div>
-            <div class="land-vignette"></div>
-            <div class="land-content">
-                <div class="land-pill">Bungoma · Kenya · Est. 2026</div>
-                <h1 class="land-h1">
-                    We left the <span class="hl">farm</span><br>
-                    to build the tools<br>
-                    the farm never had.
-                </h1>
-                <p class="land-sub-em">— Austine Tech Innovation Hub</p>
-                <p class="land-sub">A Kenyan agri-tech studio crafting websites, apps, IoT systems, and SaaS products for the intersection of agriculture, trade, and technology.</p>
-                <div class="land-btns">
-                    <button class="btn btn-primary" onclick="go('main')">Explore the Studio →</button>
-                    <button class="btn btn-accent" onclick="go('3d')">View Projects in 3D</button>
-                </div>
-                <div class="trust-strip">
-                    <span class="trust-item"><i class="fas fa-check-circle"></i> Trusted by 50+ partners</span>
-                    <span class="trust-item"><i class="fas fa-check-circle"></i> 7 public builds</span>
-                    <span class="trust-item"><i class="fas fa-check-circle"></i> 3 countries</span>
-                    <span class="trust-item"><i class="fas fa-check-circle"></i> 12,000+ impacted</span>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- MAIN STUDIO -->
-    <div class="page" id="page-main">
-        <section class="mhero">
-            <div class="mhero-bg"></div>
-            <div class="mhero-over"></div>
-            <canvas id="field-scene" aria-hidden="true"></canvas>
-            <div class="mhero-inner">
-                <div class="mhero-tag">Bungoma-born agri-tech studio</div>
-                <h1>
-                    Building the <span class="hl">digital layer</span><br>
-                    for Kenya's real economy.
-                </h1>
-                <p class="mhero-story">"We didn't come from Silicon Valley. We came from the farm. And that changes everything."</p>
-                <p class="mhero-sub">Web, app, IoT and SaaS products built by a small team with deep roots in agriculture and a relentless builder's mindset.</p>
-                <div class="mhero-tags">
-                    <span class="htag">Web Development</span>
-                    <span class="htag">Mobile Apps</span>
-                    <span class="htag">IoT Systems</span>
-                    <span class="htag">SaaS Products</span>
-                    <span class="htag">AgriTech</span>
-                </div>
-                <div class="mhero-btns">
-                    <a href="#main-projects" class="btn btn-primary">View Projects</a>
-                    <a href="#main-contact" class="btn btn-outline">Start a Conversation</a>
-                </div>
-            </div>
-            <div class="stat-bar">
-                <div class="stat-item"><div class="stat-n" data-count="3">0</div><div class="stat-l">Core founders</div></div>
-                <div class="stat-item"><div class="stat-n" data-count="7">0</div><div class="stat-l">Public builds</div></div>
-                <div class="stat-item"><div class="stat-n" data-count="2026">0</div><div class="stat-l">Active build year</div></div>
-            </div>
-        </section>
-
-        <div class="pillars">
-            <div class="pillar"><div class="pillar-tag">Field thinking</div><strong>Agricultural economics &amp; extension perspective</strong></div>
-            <div class="pillar"><div class="pillar-tag">Technical delivery</div><strong>Web, app, SaaS and IoT implementation</strong></div>
-            <div class="pillar"><div class="pillar-tag">Business growth</div><strong>Practical marketing and client-focused execution</strong></div>
-        </div>
-
-        <!-- TESTIMONIAL STRIP -->
-        <div class="testimonial-strip">
-            <div style="width:min(1200px,calc(100% - 2.5rem));margin:0 auto;overflow:hidden">
-                <div class="testimonial-scroll" id="testiScroll">
-                    <div class="testi-item"><div class="q">"</div><blockquote>These guys actually understand agriculture. They don't just code — they know what farmers need.</blockquote><div class="author">— James Ochieng, Farmer</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>We tripled our market reach after Austine Tech built our digital platform. Game changer.</blockquote><div class="author">— Grace Mwangi, Agri-Trader</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>The IoT system they designed for our farm saved us 40% on water usage. Unbelievable.</blockquote><div class="author">— Peter Kiprop, Horticulture</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>They built our entire e-commerce platform in 6 weeks. We were live and selling in no time.</blockquote><div class="author">— Sarah Akinyi, Founder</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>Finally, a tech team that speaks farmer language and code language fluently.</blockquote><div class="author">— David Odhiambo, Co-op Leader</div></div>
-                    <!-- duplicates for seamless loop -->
-                    <div class="testi-item"><div class="q">"</div><blockquote>These guys actually understand agriculture. They don't just code — they know what farmers need.</blockquote><div class="author">— James Ochieng, Farmer</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>We tripled our market reach after Austine Tech built our digital platform. Game changer.</blockquote><div class="author">— Grace Mwangi, Agri-Trader</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>The IoT system they designed for our farm saved us 40% on water usage. Unbelievable.</blockquote><div class="author">— Peter Kiprop, Horticulture</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>They built our entire e-commerce platform in 6 weeks. We were live and selling in no time.</blockquote><div class="author">— Sarah Akinyi, Founder</div></div>
-                    <div class="testi-item"><div class="q">"</div><blockquote>Finally, a tech team that speaks farmer language and code language fluently.</blockquote><div class="author">— David Odhiambo, Co-op Leader</div></div>
-                </div>
-            </div>
-        </div>
-
-        <section class="sec" id="main-mission">
-            <div class="sec-in">
-                <div class="sec-head rev">
-                    <div>
-                        <p class="sec-label">Our direction</p>
-                        <h2>Practical technology. <span class="hl">One useful build</span> at a time.</h2>
-                    </div>
-                    <p class="sec-desc">Agriculture is still full of manual work, scattered records, slow communication, and missed market information. We design digital tools around those real problems instead of chasing technology for show.<br><br>The team is already shipping public prototypes, portfolio builds, and Vercel deployments that show consistent product practice. Our goal is to grow into a serious Kenyan technology studio with the discipline and ambition to compete far beyond our first market.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="sec" id="main-services">
-            <div class="sec-in">
-                <div class="sec-head rev">
-                    <div><p class="sec-label">Services</p><h2>What we build and deliver.</h2></div>
-                    <p class="sec-desc">Every engagement starts with a clear problem. We scope the first useful version and build clean interfaces that make the service easier to trust, explain, and use.</p>
-                </div>
-                <div class="svc-grid rev">
-                    <div class="svc rev-stagger"><div class="svc-ico">WEB</div><h3>Web Development</h3><p>Responsive websites and landing pages that load fast and work on any device across Kenya's connectivity landscape.</p><div class="svc-tech">HTML · CSS · JS · React</div></div>
-                    <div class="svc rev-stagger"><div class="svc-ico">APP</div><h3>App &amp; SaaS Products</h3><p>Mobile-first applications and early-stage SaaS products built around workflows farmers and traders actually use.</p><div class="svc-tech">TypeScript · Node · REST APIs</div></div>
-                    <div class="svc rev-stagger"><div class="svc-ico">IoT</div><h3>IoT &amp; Prototyping</h3><p>Sensor-based concepts, dashboards, and hardware prototypes that answer real agricultural questions early.</p><div class="svc-tech">Arduino · Raspberry Pi · MQTT</div></div>
-                    <div class="svc rev-stagger"><div class="svc-ico">DES</div><h3>UI/UX Design</h3><p>Interfaces designed for the people who will actually use them — simple, scannable, and ready to ship.</p><div class="svc-tech">Figma · Design Systems</div></div>
-                    <div class="svc rev-stagger"><div class="svc-ico">MKT</div><h3>Digital Marketing</h3><p>Content strategy, social presence, and launch support to help early products reach their first real users.</p><div class="svc-tech">Content · SEO · Analytics</div></div>
-                    <div class="svc rev-stagger"><div class="svc-ico">AGR</div><h3>AgriTech Consulting</h3><p>Market insight, extension knowledge, and agricultural economics context for technology projects entering the farm sector.</p><div class="svc-tech">Research · Extension · Economics</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sec" id="main-team">
-            <div class="sec-in">
-                <div class="sec-head rev">
-                    <div><p class="sec-label">The team</p><h2>Three founders. <span class="hl">One shared goal.</span></h2></div>
-                    <p class="sec-desc">Austine and Bevan bring agricultural economics and extension training. Paul brings information technology. Together, that gives the hub a useful mix — market understanding, agricultural context, and the ability to build the digital layer.</p>
-                </div>
-                <div class="team-grid rev">
-                    <div class="tmem rev-stagger">
-                        <div class="tmem-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Austine Wandera"></div>
-                        <div class="tmem-body"><h3>Austine Wandera</h3><div class="tmem-role">Co-founder · AgriTech Lead</div><p>Agricultural economics background. Shapes product direction around real farm and market problems.</p></div>
-                    </div>
-                    <div class="tmem rev-stagger">
-                        <div class="tmem-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=85" alt="Bevan"></div>
-                        <div class="tmem-body"><h3>Bevan</h3><div class="tmem-role">Co-founder · Extension &amp; Strategy</div><p>Agricultural extension training. Connects field realities with digital product possibilities.</p></div>
-                    </div>
-                    <div class="tmem rev-stagger">
-                        <div class="tmem-img"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=85" alt="Paul"></div>
-                        <div class="tmem-body"><h3>Paul</h3><div class="tmem-role">Co-founder · Engineering Lead</div><p>Information technology focus. Leads all software builds from prototype to deployment.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sec" id="main-projects">
-            <div class="sec-in">
-                <div class="sec-head rev">
-                    <div><p class="sec-label">Projects</p><h2>Seven public builds <span class="hl">and counting.</span></h2></div>
-                    <p class="sec-desc">Every repository represents a real build. We track status honestly — live deployments, verified repositories, and builds in progress.</p>
-                </div>
-                <div class="proj-grid rev">
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=85" alt="git-vizor"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">HTML</div><h3>git-vizor</h3><p>Small public web build and deployment practice. HTML project shipped live to Vercel.</p><span class="proj-status ps-live">Live deployment</span><div class="proj-acts"><a href="https://github.com/Greenbird122/git-vizor" target="_blank" rel="noreferrer" class="pbtn">Repository</a><a href="https://git-vizor.vercel.app" target="_blank" rel="noreferrer" class="pbtn sec">Live ↗</a></div></div></div>
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="portfolio"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">HTML</div><h3>my-portifolio</h3><p>Personal web presence and publishing practice. Deployed live to Vercel.</p><span class="proj-status ps-live">Live deployment</span><div class="proj-acts"><a href="https://github.com/Greenbird122/my-portifolio" target="_blank" rel="noreferrer" class="pbtn">Repository</a><a href="https://my-portifolio-six-pearl.vercel.app" target="_blank" rel="noreferrer" class="pbtn sec">Live ↗</a></div></div></div>
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=900&q=85" alt="urban-umbrella"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">TypeScript</div><h3>urban-umbrella</h3><p>Active TypeScript practice and product experimentation. Most recently updated public repository.</p><span class="proj-status ps-repo">Repository available</span><div class="proj-acts"><a href="https://github.com/Greenbird122/urban-umbrella" target="_blank" rel="noreferrer" class="pbtn">Repository</a></div></div></div>
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=85" alt="probable-goggles"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">TypeScript</div><h3>probable-goggles</h3><p>Product-building practice in a typed web stack. Compact and focused TypeScript repository.</p><span class="proj-status ps-repo">Repository available</span><div class="proj-acts"><a href="https://github.com/Greenbird122/probable-goggles" target="_blank" rel="noreferrer" class="pbtn">Repository</a></div></div></div>
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" alt="symmetrical-couscous"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">TypeScript</div><h3>symmetrical-couscous</h3><p>Broader practice across modern project scaffolds from the active portfolio window.</p><span class="proj-status ps-repo">Repository available</span><div class="proj-acts"><a href="https://github.com/Greenbird122/symmetrical-couscous" target="_blank" rel="noreferrer" class="pbtn">Repository</a></div></div></div>
-                    <div class="proj rev-stagger"><div class="proj-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=85" alt="ideal-funicular"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">TypeScript</div><h3>ideal-funicular</h3><p>TypeScript repo with Vercel deployment intent. Deployment currently offline.</p><span class="proj-status ps-off">Deployment offline</span><div class="proj-acts"><a href="https://github.com/Greenbird122/ideal-funicular" target="_blank" rel="noreferrer" class="pbtn">Repository</a></div></div></div>
-                    <div class="proj rev-stagger" style="grid-column:span 2"><div class="proj-img" style="height:220px"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1200&q=85" alt="Hub site"><div class="proj-img-over"></div></div><div class="proj-body"><div class="proj-lang">HTML · TypeScript</div><h3>Austine Tech Hub Site</h3><p>The company website itself — demonstrating front-end craft, Three.js animation, multi-page architecture, and immersive 3D project exploration.</p><span class="proj-status ps-live">You are viewing it</span><div class="proj-acts"><a href="https://github.com/Greenbird122" target="_blank" rel="noreferrer" class="pbtn">GitHub Profile</a></div></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="sec" id="main-gallery">
-            <div class="sec-in">
-                <div class="sec-head rev">
-                    <div><p class="sec-label">Work scenes</p><h2>The world we <span class="hl">build for.</span></h2></div>
-                </div>
-                <div class="gal rev">
-                    <figure><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Field at sunrise"><figcaption>Agriculture as the starting point</figcaption></figure>
-                    <figure><img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=700&q=80" alt="Prototyping"><figcaption>Prototype culture</figcaption></figure>
-                    <figure><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=82" alt="Developer"><figcaption>Software execution</figcaption></figure>
-                    <figure><img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=700&q=80" alt="Landscape"><figcaption>Field-ready thinking</figcaption></figure>
-                    <figure><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=82" alt="Team"><figcaption>Planning and delivery</figcaption></figure>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-dark" id="main-contact">
-            <div class="cd-in">
-                <div>
-                    <p class="sec-label" style="color:var(--secondary)">Contact</p>
-                    <h2>Let us build what your <span style="color:var(--secondary)">next stage</span> needs.</h2>
-                    <p>Reach out with a clear idea, a rough sketch, or just the problem you want solved. We can help scope the first version and turn it into a working build.</p>
-                    <a href="https://github.com/Greenbird122" target="_blank" rel="noreferrer" class="btn btn-primary" style="margin-top:1.5rem">GitHub Profile ↗</a>
-                </div>
-                <div class="cg">
-                    <div>
-                        <div class="cg-head">WhatsApp — fast response</div>
-                        <div class="clinks">
-                            <a href="https://wa.me/254723100467?text=Hello%20Austine%20Tech%2C%20I%20want%20to%20request%20a%20prototype." target="_blank" rel="noreferrer" class="clink">Request a Prototype <span>↗</span></a>
-                            <a href="https://wa.me/254711507497?text=Hello%20Austine%20Tech%2C%20I%20want%20to%20build%20a%20website." target="_blank" rel="noreferrer" class="clink">Build a Website <span>↗</span></a>
-                            <a href="https://wa.me/254758336196?text=Hello%20Austine%20Tech%2C%20I%20want%20to%20discuss%20an%20IoT%20idea." target="_blank" rel="noreferrer" class="clink">Discuss an IoT Idea <span>↗</span></a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="cg-head">Email</div>
-                        <div class="clinks">
-                            <a href="mailto:austinewandera01@gmail.com" class="clink">austinewandera01@gmail.com <span>→</span></a>
-                            <a href="mailto:appaulings@gmail.com" class="clink">appaulings@gmail.com <span>→</span></a>
-                            <a href="mailto:creepydurk@gmail.com" class="clink">creepydurk@gmail.com <span>→</span></a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="cg-head">Phone</div>
-                        <div class="clinks">
-                            <a href="tel:+254711507497" class="clink">+254 711 507 497 <span>→</span></a>
-                            <a href="tel:+254723100467" class="clink">+254 723 100 467 <span>→</span></a>
-                            <a href="tel:+254758336196" class="clink">+254 758 336 196 <span>→</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer class="foot"><div class="foot-in"><p>© <span class="yr"></span> Austine Tech Innovation Hub · Bungoma, Kenya</p><div style="display:flex;gap:1.5rem"><span onclick="go('landing')" style="cursor:pointer">↑ Top</span><a href="https://github.com/Greenbird122" target="_blank" rel="noreferrer">GitHub ↗</a></div></div></footer>
-    </div>
-
-    <!-- DESIGNER -->
-    <div class="page" id="page-designer">
-        <section class="des-hero">
-            <div class="des-bg"></div>
-            <div class="des-bg-over"></div>
-            <div class="des-ghost">AT</div>
-            <div class="des-content">
-                <div class="des-tag">Austine Tech — Design &amp; Identity</div>
-                <h1 class="des-h1">
-                    <span>Where</span>
-                    <span>Field</span>
-                    <em>meets Pixel.</em>
-                </h1>
-                <div class="des-bottom">
-                    <p class="des-sub">A minimalist take on a studio that builds serious digital products for Kenya's agricultural economy. Typography first. Image second. Function always.</p>
-                    <div class="des-num"><strong>7</strong><span>Public Builds · 2026</span></div>
-                </div>
-            </div>
-        </section>
-
-        <div class="des-spread">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=85" alt="Agricultural field">
-            <div class="des-spread-cap">Bungoma, Kenya — 2026</div>
-        </div>
-
-        <div class="des-text-block">
-            <div class="des-col">
-                <div class="des-col-label">What we are</div>
-                <p>Austine Tech Innovation Hub is a Kenyan technology studio built by three founders with roots in agricultural economics, extension science, and software engineering. We are not a consulting firm. We are builders.</p>
-            </div>
-            <div class="des-divider"></div>
-            <div class="des-col">
-                <div class="des-col-label">What drives us</div>
-                <p>Agriculture remains underdigitized. Scattered records, slow communication, missed market signals. We see that gap and build toward it — with tools designed around what farmers and traders actually need, not what impresses investors.</p>
-            </div>
-        </div>
-
-        <section class="des-svcs">
-            <p class="sec-label" style="margin-bottom:2.25rem;color:var(--secondary)">What we do</p>
-            <div>
-                <div class="des-svc-row"><span class="des-svc-n">01</span><div><div class="des-svc-name">Web Development</div><div style="font-size:.78rem;color:#9aab9e;margin-top:2px">HTML · CSS · JavaScript · React</div></div><span class="des-svc-arrow">↗</span></div>
-                <div class="des-svc-row"><span class="des-svc-n">02</span><div><div class="des-svc-name">App &amp; SaaS Products</div><div style="font-size:.78rem;color:#9aab9e;margin-top:2px">TypeScript · Node.js · REST APIs</div></div><span class="des-svc-arrow">↗</span></div>
-                <div class="des-svc-row"><span class="des-svc-n">03</span><div><div class="des-svc-name">IoT &amp; Prototyping</div><div style="font-size:.78rem;color:#9aab9e;margin-top:2px">Arduino · Raspberry Pi · Sensors</div></div><span class="des-svc-arrow">↗</span></div>
-                <div class="des-svc-row"><span class="des-svc-n">04</span><div><div class="des-svc-name">UI/UX Design</div><div style="font-size:.78rem;color:#9aab9e;margin-top:2px">Figma · Systems · Accessibility</div></div><span class="des-svc-arrow">↗</span></div>
-                <div class="des-svc-row"><span class="des-svc-n">05</span><div><div class="des-svc-name">AgriTech Consulting</div><div style="font-size:.78rem;color:#9aab9e;margin-top:2px">Extension · Economics · Field Research</div></div><span class="des-svc-arrow">↗</span></div>
-            </div>
-        </section>
-
-        <div class="des-photos" style="margin-bottom:0">
-            <figure><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=900&q=85" alt="Hands in soil"></figure>
-            <figure><img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=700&q=85" alt="Electronics"></figure>
-            <figure><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=700&q=85" alt="Team"></figure>
-            <figure><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85" alt="Developer"></figure>
-            <figure><img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=700&q=80" alt="Landscape"></figure>
-        </div>
-
-        <section class="des-projs">
-            <h2>Projects</h2>
-            <div class="des-proj-g">
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/git-vizor','_blank')"><div class="des-pi-n">01</div><h3>git-vizor</h3><p>HTML project shipped live to Vercel. First verified live deployment.</p><div class="des-pi-tech">HTML · Vercel · Live ✦</div></div>
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/my-portifolio','_blank')"><div class="des-pi-n">02</div><h3>my-portifolio</h3><p>Personal web presence and publishing practice. Live on Vercel.</p><div class="des-pi-tech">HTML · Vercel · Live ✦</div></div>
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/urban-umbrella','_blank')"><div class="des-pi-n">03</div><h3>urban-umbrella</h3><p>Most recently updated public TypeScript repository. Active experimentation.</p><div class="des-pi-tech">TypeScript · GitHub</div></div>
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/probable-goggles','_blank')"><div class="des-pi-n">04</div><h3>probable-goggles</h3><p>Product-building in a typed web stack. Compact and focused.</p><div class="des-pi-tech">TypeScript · GitHub</div></div>
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/symmetrical-couscous','_blank')"><div class="des-pi-n">05</div><h3>symmetrical-couscous</h3><p>Broader practice across modern project scaffolds.</p><div class="des-pi-tech">TypeScript · GitHub</div></div>
-                <div class="des-pi" onclick="window.open('https://github.com/Greenbird122/ideal-funicular','_blank')"><div class="des-pi-n">06</div><h3>ideal-funicular</h3><p>TypeScript repo with Vercel deployment intent. Deployment offline.</p><div class="des-pi-tech">TypeScript · GitHub · Vercel</div></div>
-            </div>
-        </section>
-
-        <div class="des-contact">
-            <h2>Start<br>something<br>real.</h2>
-            <div>
-                <p style="color:#5a6b60;font-size:.9rem;margin-bottom:1.75rem;line-height:1.85">Reach us by WhatsApp for the quickest reply, or send an email if you prefer a written brief. We respond the same day.</p>
-                <div class="des-clinks">
-                    <a href="https://wa.me/254723100467" target="_blank" rel="noreferrer" class="des-clink">WhatsApp Austine <span>→</span></a>
-                    <a href="https://wa.me/254711507497" target="_blank" rel="noreferrer" class="des-clink">WhatsApp Paul <span>→</span></a>
-                    <a href="mailto:austinewandera01@gmail.com" class="des-clink">Email the team <span>→</span></a>
-                    <a href="https://github.com/Greenbird122" target="_blank" rel="noreferrer" class="des-clink">GitHub Profile <span>→</span></a>
-                </div>
-            </div>
-        </div>
-        <footer class="foot" style="margin-top:0"><div class="foot-in"><p>© <span class="yr"></span> Austine Tech Innovation Hub · Bungoma, Kenya</p><a href="#" onclick="go('landing');return false">All sites ↑</a></div></footer>
-    </div>
-
-    <!-- 3D PROJECTS -->
-    <div class="page" id="page-3d">
-        <div class="t3-filter">
-            <button class="f-btn on" onclick="filt('all',this)">All Projects</button>
-            <button class="f-btn" onclick="filt('live',this)">Live Deployments</button>
-            <button class="f-btn" onclick="filt('ts',this)">TypeScript</button>
-            <button class="f-btn" onclick="filt('html',this)">HTML</button>
-        </div>
-        <div class="t3-body">
-            <div class="t3-canvas-wrap">
-                <canvas id="proj-canvas"></canvas>
-                <div class="t3-hud"><div class="hud-name">AT Innovation Hub</div><div class="hud-sub">Projects Explorer · 3D</div></div>
-                <div class="t3-tip">Drag to orbit · Scroll to zoom · Click node to inspect</div>
-            </div>
-            <div class="t3-panel">
-                <div class="t3-panel-head">Project Index — 7 Builds</div>
-                <div class="t3-list" id="t3list"></div>
-                <div class="t3-detail" id="t3detail"></div>
-            </div>
-        </div>
-        <footer class="foot"><div class="foot-in"><p>© <span class="yr"></span> Austine Tech Innovation Hub</p><a href="#" onclick="go('landing');return false">← All Sites</a></div></footer>
-    </div>
-
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
